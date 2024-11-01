@@ -13,6 +13,7 @@ const NavBar: React.FC = () => {
   const userWithRole = session?.user as { email: string; randomKey: string };
   const role = userWithRole?.randomKey;
   const pathName = usePathname();
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -22,11 +23,16 @@ const NavBar: React.FC = () => {
           <Nav className="me-auto justify-content-start">
             {currentUser
               ? [
-                  <Nav.Link id="add-stuff-nav" href="/add" key="add" active={pathName === '/add'}>
-                    Add Stuff
+                  // eslint-disable-next-line max-len
+                  <Nav.Link id="documentation-nav" href="/documentation" key="documentation" active={pathName === '/documentation'}>
+                  Documentation
                   </Nav.Link>,
                   <Nav.Link id="list-stuff-nav" href="/list" key="list" active={pathName === '/list'}>
                     List Stuff
+                  </Nav.Link>,
+                  // eslint-disable-next-line max-len
+                  <Nav.Link id="add-stuff-nav" href="/add" key="add" active={pathName === '/add'}>
+                    Add Stuff
                   </Nav.Link>,
                 ]
               : ''}
